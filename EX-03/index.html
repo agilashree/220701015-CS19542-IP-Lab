@@ -1,1 +1,117 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img src="bg[1].jpeg" alt="course"  id="course">
+        <p id="title">EDU-LEARN HUB</p>
+        <p>"Where Learning Meets Excellence"</p>
+       </div>
+    <div class="container">
+        <form id="registrationForm">
+            <h1>Register</h1>
+            <div class="register inputs widths">
+            <label for="registerNo">Register No:</label>
+            <input type="text" id="registerNo" name="registerNo">
+            <br>
+            <span id="registerNoError" class="error-message"></span>
+            </div>
+             <div class="name inputs widths">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="nameError" class="error-message"></span>
+             </div>
+             <div class="year inputs ranges">
+            <label for="year">Year:</label>
+            <select id="year" name="year">
+                <option value="">Select Year</option>
+                <option value="1st year">1st year</option>
+                <option value="2nd year">2nd year</option>
+                <option value="3rd year">3rd year</option>
+                <option value="4th year">4th year</option>
+            </select><br>
+            <span id="yearError" class="error-message"></span>
+             </div>
+             <div class="email inputs widths">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <span id="emailError" class="error-message"></span>
+             </div>
+             <div class="sem inputs ranges ">
+            <label for="semester">Semester:</label>
+            <select id="semester" name="semester">
+                <option value="">Select Semester</option>
+                <option value="sem 1">sem 1</option>
+                <option value="sem 2">sem 2</option>
+                <option value="sem 3">sem 3</option>
+                <option value="sem 4">sem 4</option>
+                <option value="sem 5">sem 5</option>
+                <option value="sem 6">sem 6</option>
+                <option value="sem 7">sem 7</option>
+                <option value="sem 8">sem 8</option>
+            </select><br>
+            <span id="semesterError" class="error-message"></span>
+              </div>
+            <div class="core inputs ranges">
+            <label for="core">Core/OE/PE:</label>
+            <select id="core" name="core">
+                <option value="">Select Category</option>
+                <option value="Core">Core</option>
+                <option value="PE">PE</option>  
+                <option value="OE">OE</option>
+            </select><br>
+            <span id="coreError" class="error-message"></span>
+            </div>
+            <div class="subcode inputs widths">
+            <label for="subjectCode">Subject Code:</label>
+            <input type="text" id="subjectCode" name="subjectCode">
+            <span id="subjectCodeError" class="error-message"></span>
+            </div>
+            <div class="subname inputs widths">
+            <label for="subjectName">Subject Name:</label>
+            <input type="text" id="subjectName" name="subjectName">
+            <span id="subjectNameError" class="error-message"></span>
+            </div>
+             <div class="credit inputs widths">
+            <label for="credit">Credit:</label>
+            <input type="text" id="credit" name="credit">
+            <span id="creditError" class="error-message"></span>
+            </div>
+            <div class="phoneno inputs widths">
+            <label for="phoneNo">Phone No:</label>
+            <input type="text" id="phoneNo" name="phoneNo"><br>
+            <span id="phoneNoError" class="error-message"></span>
+            </div>
+            <div class="gender inputs">
+            <label>Gender:</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female" class="label-female">Female</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male" class="label-male">Male</label><br>
+            <span id="genderError" class="error-message"></span>
+             </div>
+             <div class="dept inputs ranges">
+            <label for="department">Department:</label>
+            <select id="department" name="department">
+                <option value="">Select Department</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="IT">IT</option>
+                <option value="AIML">AIML</option>
+                <option value="AIDS">AIDS</option>
+            </select><br>
+            <span id="departmentError" class="error-message"></span>
+             </div>
+             <div class="button inputs">
+            <button type="button" onclick="validateForm()">Submit</button></div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
