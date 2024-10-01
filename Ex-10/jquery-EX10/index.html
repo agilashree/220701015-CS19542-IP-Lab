@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Bubble Game</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Google Font for Stylish h1 */
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #ff69b4, #da70d6);
+      background-size: 400% 400%;
+      animation: gradientBackground 10s ease infinite;
+      overflow: hidden;
+    }
+
+    /* Pink to Violet Background Animation */
+    @keyframes gradientBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Stylish Heading with Gradient Animation */
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #333;
+      background: black;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 3rem;
+      animation: gradientText 5s infinite linear;
+    }
+
+    @keyframes gradientText {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* Bubble Styles */
+    .bubble {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      opacity: 0.9;
+      animation: float 5s ease-in-out forwards, rotate 5s linear infinite, scaleUp 5s ease-in-out forwards, bounce 5s ease-in-out forwards, pulse 2s infinite;
+    }
+
+    /* Bubble Float Animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-300px);
+        opacity: 0;
+      }
+    }
+
+    /* Bubble Rotation Animation */
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(720deg);
+      }
+    }
+
+    /* Bubble Scaling Animation */
+    @keyframes scaleUp {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.8);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Bubble Bouncing Effect */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Bubble Pulsing Effect */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.9;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Press any key (A-Z) to generate bubbles!</h1>
+
+<script>
+  $(document).ready(function () {
+    var width = screen.width - 100;
+    var height = screen.height - 200;
+
+    // Listen for key press event
+    $(document).keydown(function (event) {
+      // Check if key pressed is A-Z (ASCII 65-90)
+      if (event.which >= 65 && event.which <= 90) {
+        // Generate random position for bubble
+        var x = Math.floor(Math.random() * width);
+        var y = Math.floor(Math.random() * height);
+
+        // Generate a random color for the bubble
+        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+        // Create bubble element
+        var $bubble = $('<div class="bubble"></div>');
+        $bubble.text(String.fromCharCode(event.which));
+        $bubble.css({
+          'left': x + 'px',
+          'top': y + 'px',
+          'background-color': randomColor
+        });
+
+        // Append bubble to body
+        $('body').append($bubble);
+
+        // Remove bubble after 5 seconds
+        setTimeout(function () {
+          $bubble.fadeOut(500, function () {
+            $bubble.remove();
+          });
+        }, 5000);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
